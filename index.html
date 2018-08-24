@@ -1,0 +1,439 @@
+<?php
+   $paises=array("Brasil","Senegal","EUA", "México");
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Construção Modelo Padrão</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/style.default.css">
+    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="public/img/favicon.png">
+    
+    <!--Bootstrap Datetime-->
+    <link rel="stylesheet" href="public/css/bootstrap-datetimepicker.min.css">
+   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+
+
+        <noscript>
+            <meta http-equiv="refresh" content="30"> 
+            Para completa funcionalidade deste site é necessário habilitar o JavaScript.
+            Aqui estão as <a href="https://www.enable-javascript.com/pt/" target="_blank">
+            instruções de como habilitar o JavaScript no seu navegador</a>.
+        </noscript>
+
+
+
+    <div class="container">
+        <!--início do formulário-->
+        <form action="" method="POST" id="formulario">
+
+            <!--informação básica-->
+            <fieldset>
+               
+                <legend class="text-center">Modelo Formulário de Contato</legend>
+
+                <div class="row">
+
+
+                    <div class="form-group col-sm-6">
+                        <a href="#" data-toggle="popover" title="Aqui o título" data-content="Aqui o conteúdo sobre o campo 
+                               explicando o seu uso,explicando o seu uso
+                               explicando o seu uso,explicando o seu uso">
+                               <i class="fa fa-question-circle-o" style="font-size:20px"></i>
+                          </a>
+
+                        <label id="" for="nome">Nome*</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            <input type="text" name="nome" class="form-control" required id="nome" placeholder="Adicionar nome" autocomplete="off">
+                        </div>
+                        <div class="item-text input-error"></div> 
+                    </div>
+
+
+                    <!--input nome-->
+                    <div class="form-group col-sm-6">
+                        <a href="#" data-toggle="popover" title="Aqui o título" data-content="Aqui o conteúdo sobre o campo 
+                               explicando o seu uso,explicando o seu uso
+                               explicando o seu uso,explicando o seu uso">
+                               <i class="fa fa-question-circle-o" style="font-size:20px"></i>
+                          </a>
+                        <label for="apelido">Apelido*</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            <input type="text" name="apelido" class="form-control" required id="apelido" placeholder="Adicionar Apelido" autocomplete="off">
+                        </div>
+                         <div class="item-text input-error"></div> 
+                    </div>
+                    <!--input apelido-->
+                   
+                </div>
+                <!--row nome e apelido-->
+
+
+                <div class="row">
+
+                    <div class="form-group col-sm-12">
+                        <a href="#" data-toggle="popover" title="Aqui o título" data-content="Aqui o conteúdo sobre o campo 
+                               explicando o seu uso,explicando o seu uso
+                               explicando o seu uso,explicando o seu uso">
+                               <i class="fa fa-question-circle-o" style="font-size:20px"></i>
+                          </a>
+                        <label for="email">E-mail*</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </div>
+                            <input type="text" name="email" class="form-control" id="email" required placeholder="Adicionar um e-mail válido" autocomplete="off">
+                        </div>
+                        <div class="item-text input-error"></div> 
+                    </div>
+
+
+                </div>
+                <!--row email-->
+
+                <div class="row">
+
+
+                    <div class="form-group col-sm-6">
+                        <label for="nascimento">Data de Nascimento*</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                            <input type="text" name="nascimento" class="form-control" id="nascimento" required placeholder="Adicionar data"  autocomplete="off">
+                        </div>
+                         <div class="item-text input-error"></div> 
+                    </div>
+                    
+                    <div class="form-group col-sm-6">
+                        <label for="telefone">Telefone*</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-earphone"></span>
+                            </div>
+                            <input type="text" name="telefone" class="form-control" id="telefone" required placeholder="Adicionar telefone" autocomplete="off">
+                        </div> 
+                         <div class="item-text input-error"></div> 
+                    </div>
+
+
+                </div>
+                <!--row data de nascimento e telefone-->
+                
+                <div class="row">
+
+
+                    <div class="form-group col-sm-6">
+                         <a href="#" data-toggle="popover" title="Aqui o título" data-content="Aqui o conteúdo sobre o campo 
+                               explicando o seu uso,explicando o seu uso
+                               explicando o seu uso,explicando o seu uso">
+                               <i class="fa fa-question-circle-o" style="font-size:20px"></i>
+                          </a>
+                        <label for="genero">Género*</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-filter"></span>
+                            </div>
+                            <select name="genero" required id="genero" class="form-control">
+                                <option disabled selected>Selecionar</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                            </select>
+                        </div>
+                        <div class="item-text input-error"></div> 
+                    </div>
+                    
+
+
+                     <div class="form-group col-sm-6">
+                        <label for="procedencia">Como você ficou sabe sobre a empresa?</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-filter"></span>
+                            </div>
+                            <select name="procedencia" required id="procedencia" class="form-control">
+                                <option disabled selected>Selecionar uma opção</option>
+                                <option value="internet">Internet</option>
+                                <option value="televisao">Televisão</option>
+                                <option value="folhetos">Folhetos</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="item-text input-error"></div>
+                    </div>
+                    
+                </div> <!--género e procedência-->
+                
+
+            </fieldset>
+           <!--fim informação básica-->
+
+            <!--informação complementar-->
+           <fieldset>
+                 <legend class="text-center">Informações de Envio</legend>
+
+                 <div class="row">
+
+                      <div class="form-group col-sm-3">
+                        <label for="pais">Escolha um pais de destino*</label>
+                         <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-filter"></span>
+                            </div>
+                            <select name="pais" required id="pais" class="form-control">
+                                <option disabled selected>Selecionar uma opção</option>
+                                <?php
+                                    foreach($paises as $key => $value){
+                                        echo "<option value=\"$key\">$value</option>";
+                                    }
+                                 ?>
+                            </select>
+                        </div>
+                        <div class="item-text input-error"></div>
+                      </div>
+
+                     <div class="form-group col-sm-3">
+                            <label for="cidade">Cidade*</label> 
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                </div>
+                                  <input type="text" required name="cidade" class="form-control" id="cidade" 
+                                  placeholder="Cidade de destino" autocomplete="off" > 
+                            </div>
+                            <div class="item-text input-error"></div>
+                     </div>
+
+                     <div class="form-group col-sm-6">
+                                <label for="rua">Rua*</label> 
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-list-alt"></span>
+                                    </div>
+                                    <input type="text" required name="rua" class="form-control" id="rua" 
+                                    placeholder="Nome da Rua" autocomplete="off" > 
+                                </div>
+                                <div class="item-text input-error"></div>
+                        </div>
+
+                 </div>  <!--row pais e cidade-->
+
+                <div class="row">
+
+
+
+                    <div class="form-group col-sm-3">
+                                <label for="bairro">Bairro*</label> 
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-list-alt"></span>
+                                    </div>
+                                    <input type="text" required name="bairro" class="form-control" id="bairro" 
+                                    placeholder="Nome do bairro" autocomplete="off" > 
+                                </div>
+                                <div class="item-text input-error"></div>
+                        </div>
+
+                       <div class="form-group col-sm-3">
+                            <label for="numero">Número*</label> 
+                               <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-list-alt"></span>
+                                </div>
+                                <input type="text" required name="numero" class="form-control" id="numero" 
+                                placeholder="número" autocomplete="off" > 
+                             </div>
+                                <div class="item-text input-error"></div>                             
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label for="cep">CEP*</label> 
+                               <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-list-alt"></span>
+                                </div>
+                                <input type="text" required name="cep" class="form-control" id="cep" 
+                                placeholder="00000-0000" autocomplete="off" > 
+                             </div>
+                              <div class="item-text input-error"></div>       
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="ref">Referência</label> 
+                               <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-list-alt"></span>
+                                </div>
+                                <input type="text" required name="ref" class="form-control" id="ref" 
+                                placeholder="Ponto de referência" autocomplete="off" > 
+                             </div>
+                              <div class="item-text input-error"></div>       
+                        </div>
+
+                </div> 
+
+
+
+               <div class="row">
+                    <div class="form-group col-sm-12">
+                         <a href="#coment" data-toggle="popover" title="Aqui o título" data-content="Aqui o conteúdo sobre o campo 
+                               explicando o seu uso,explicando o seu uso
+                               explicando o seu uso,explicando o seu uso">
+                               <i class="fa fa-question-circle-o" style="font-size:20px"></i>
+                          </a>
+
+                         <label for="coment">Comentários</label> 
+                         <div class="input-group">
+                             <div class="input-group-addon">
+                             <span class="glyphicon glyphicon-book"></span>
+                             </div>
+                             <textarea class="form-control" required name="coment" rows="5" id="coment"></textarea>
+                        </div>
+                         <div class="item-text input-error"></div>   
+                     </div>
+               </div> <!--comentários -->
+
+               <div class="row">
+                  <div class="form-group col-sm-12">
+                      <div class="radio">
+                         <label>
+                            <input type="radio" required name="terminos" id="terminos" value="true"> 
+                            leio e aceito os termos e condições da empresa*.
+                            </input>
+                         </label>
+                        <div class="item-text input-error"></div>   
+                      </div>
+                      
+                  </div>
+                  
+               </div> <!--termos e condições-->
+
+               <div class="row">
+                   <div class="form-group col-sm-12">
+                     <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Enviar">
+                   </div>
+               </div> <!--submit-->
+           </fieldset>
+            <!--fim informação complementar-->
+
+        </form>
+       <!--fim do formulário-->
+
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <div class="row copyright">
+                <div class="col-md-6">
+                    <p class="roboto">&copy;2017 Construção Modelo</p>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Javascript files-->
+    <script src="public/js/jquery-1.12.4.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <!--Bootstrap Datetime-->
+    <script type="text/javascript" src="public/js/moment.min.js"></script>
+    <script type="text/javascript" src="public/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="public/js/scripts.js"></script>
+    <script type="text/javascript" src="public/js/jquery.validate.min.js"></script>
+
+
+
+  <script type="text/javascript" charset="utf-8" >
+          
+      /* Validate & Submit Form */
+      $('form').validate({
+          messages: {
+          nome: {
+            required: 'Por favor preencha o seu nome.',
+              },             
+          apelido: {
+            required: 'Por favor preencha o seu apelido.',
+              },  
+          email: {
+              required: 'Adicionar o seu e-mail.',
+              },             
+          nascimento: {
+            required: 'Qual a data de nascimento?.',
+              }, 
+          telefone: {
+            required: 'Qual o seu telefone?',
+              },
+          genero: {
+            required: 'Selecione um genero.',
+              },   
+          procedencia: {
+            required: 'Como ficou sabendo sobre a empresa?.',
+              },  
+          pais: {
+            required: 'Seu pais?.',
+              },  
+        cidade:{
+           required: 'Sua cidade?.',
+          },
+         rua:{
+            required: 'Nome da sua rua?.', 
+         },
+        bairro:{
+           required: 'Qual o bairro?.',
+          },
+         numero:{
+            required: 'Número?', 
+         },
+         cep:{
+           required: 'Cep?.',
+          },
+         ref:{
+            required: 'Informe uma referência.', 
+         },   
+        coment:{
+           required: 'Deixe um comentário',  
+        }, 
+        terminos:{
+            required: 'Necessário aceitar os termos do contrato',  
+        },  
+        },
+        onkeyup: false,
+          errorElement : 'div',
+        errorPlacement: function(error, element) {
+          error.appendTo(element.parent().siblings('.input-error'));
+        }
+      });
+
+  </script>
+
+
+</body>
+</html>
