@@ -1,7 +1,3 @@
-<?php
-   $paises=array("Brasil","Senegal","EUA", "México");
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,10 +12,15 @@
     
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+
     <link rel="shortcut icon" href="public/img/favicon.png">
     
-    <!--Bootstrap Datetime-->
-    <link rel="stylesheet" href="public/css/bootstrap-datetimepicker.min.css">
+    <!--Bootstrap datepicker-->
+    <link rel="stylesheet" href="public/css/bootstrap-datepicker.min.css">
+    <!--dataTables-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css">
    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,7 +68,7 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-user"></span>
                             </div>
-                            <input type="text" name="nome" class="form-control" required id="nome" placeholder="Adicionar nome" autocomplete="off">
+                            <input type="text" name="nome" class="form-control" value="Nome exemplo" tabindex="1" required id="nome" placeholder="Adicionar nome" autocomplete="off">
                         </div>
                         <div class="item-text input-error"></div> 
                     </div>
@@ -85,7 +86,7 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-user"></span>
                             </div>
-                            <input type="text" name="apelido" class="form-control" required id="apelido" placeholder="Adicionar Apelido" autocomplete="off">
+                            <input type="text" name="apelido" class="form-control" value="Nome fantasia" tabindex="2" required id="apelido" placeholder="Adicionar Apelido" autocomplete="off">
                         </div>
                          <div class="item-text input-error"></div> 
                     </div>
@@ -97,7 +98,7 @@
 
                 <div class="row">
 
-                    <div class="form-group col-sm-12">
+                    <div class="form-group col-sm-6">
                         <a href="#" data-toggle="popover" title="Aqui o título" data-content="Aqui o conteúdo sobre o campo 
                                explicando o seu uso,explicando o seu uso
                                explicando o seu uso,explicando o seu uso">
@@ -108,9 +109,21 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-envelope"></span>
                             </div>
-                            <input type="text" name="email" class="form-control" id="email" required placeholder="Adicionar um e-mail válido" autocomplete="off">
+                            <input type="email" title="e-mail inválido" name="email" class="form-control" tabindex="3" value="email@email.com.br" id="email" required placeholder="Adicionar um e-mail válido" autocomplete="off">
                         </div>
                         <div class="item-text input-error"></div> 
+                    </div>
+
+                    <div class="form-group col-sm-6">
+
+                            <label for="valorcontrato">Valor do Contrato</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                                </div>
+                                <input type="text" name="valorcontrato" class="form-control campovalor" id="valorcontrato" required placeholder="Adicionar valor" autocomplete="off">
+                            </div>
+                            <div class="item-text input-error"></div> 
                     </div>
 
 
@@ -121,28 +134,27 @@
 
 
                     <div class="form-group col-sm-6">
-                        <label for="nascimento">Data de Nascimento*</label>
+                        <label for="datanascimento">Data de Nascimento*</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </div>
-                            <input type="text" name="nascimento" class="form-control" id="nascimento" required placeholder="Adicionar data"  autocomplete="off">
+                            <input type="text" name="datanascimento" class="form-control campodata" tabindex="4" value="05/05/2018" id="datanascimento" required placeholder="Adicionar data"  autocomplete="off">
                         </div>
                          <div class="item-text input-error"></div> 
                     </div>
-                    
+
+
                     <div class="form-group col-sm-6">
                         <label for="telefone">Telefone*</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-earphone"></span>
                             </div>
-                            <input type="text" name="telefone" class="form-control" id="telefone" required placeholder="Adicionar telefone" autocomplete="off">
+                            <input type="text" name="telefone" class="form-control telefone" id="telefone" value="(11)98555-0842" tabindex="5" required placeholder="Adicionar telefone" autocomplete="off">
                         </div> 
                          <div class="item-text input-error"></div> 
                     </div>
-
-
                 </div>
                 <!--row data de nascimento e telefone-->
                 
@@ -160,10 +172,10 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-filter"></span>
                             </div>
-                            <select name="genero" required id="genero" class="form-control">
-                                <option disabled selected>Selecionar</option>
-                                <option value="masculino">Masculino</option>
-                                <option value="feminino">Feminino</option>
+                            <select name="genero" required id="genero" tabindex="6" class="form-control selectpicker">
+                                <option>Selecionar uma opção</option>
+                                <option value="1">Masculino</option>
+                                <option value="2">Feminino</option>
                             </select>
                         </div>
                         <div class="item-text input-error"></div> 
@@ -177,12 +189,12 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-filter"></span>
                             </div>
-                            <select name="procedencia" required id="procedencia" class="form-control">
-                                <option disabled selected>Selecionar uma opção</option>
-                                <option value="internet">Internet</option>
-                                <option value="televisao">Televisão</option>
-                                <option value="folhetos">Folhetos</option>
-                                <option value="outros">Outros</option>
+                            <select name="procedencia" required id="procedencia" tabindex="7" class="form-control selectpicker">
+                                <option>Selecionar uma opção</option>
+                                <option value="1">Internet</option>
+                                <option value="2">Televisão</option>
+                                <option value="3">Folhetos</option>
+                                <option value="4">Outros</option>
                             </select>
                         </div>
                         <div class="item-text input-error"></div>
@@ -196,9 +208,9 @@
 
             <!--informação complementar-->
            <fieldset>
-                 <legend class="text-center">Informações de Envio</legend>
+                <legend class="text-center">Informações de Envio</legend>
 
-                 <div class="row">
+                <div class="row">
 
                       <div class="form-group col-sm-3">
                         <label for="pais">Escolha um pais de destino*</label>
@@ -206,13 +218,12 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-filter"></span>
                             </div>
-                            <select name="pais" required id="pais" class="form-control">
-                                <option disabled selected>Selecionar uma opção</option>
-                                <?php
-                                    foreach($paises as $key => $value){
-                                        echo "<option value=\"$key\">$value</option>";
-                                    }
-                                 ?>
+                            <select name="pais" required id="pais" tabindex="8" class="form-control selectpicker">
+                                <option>Selecionar uma opção</option>
+                                <option value="1">Brasil</option>
+                                <option value="2">Venezuela</option>
+                                <option value="3">Italia</option>
+                                <option value="4">Outros</option>
                             </select>
                         </div>
                         <div class="item-text input-error"></div>
@@ -224,7 +235,7 @@
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-list-alt"></span>
                                 </div>
-                                  <input type="text" required name="cidade" class="form-control" id="cidade" 
+                                  <input type="text" required name="cidade" tabindex="9" value="São Paulo" class="form-control" id="cidade" 
                                   placeholder="Cidade de destino" autocomplete="off" > 
                             </div>
                             <div class="item-text input-error"></div>
@@ -236,15 +247,15 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-list-alt"></span>
                                     </div>
-                                    <input type="text" required name="rua" class="form-control" id="rua" 
+                                    <input type="text" required name="rua" tabindex="10" value="Rua do AAA" class="form-control" id="rua" 
                                     placeholder="Nome da Rua" autocomplete="off" > 
                                 </div>
                                 <div class="item-text input-error"></div>
                         </div>
 
-                 </div>  <!--row pais e cidade-->
+                </div>  <!--row pais e cidade-->
 
-                <div class="row">
+               <div class="row">
 
 
 
@@ -254,7 +265,7 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-list-alt"></span>
                                     </div>
-                                    <input type="text" required name="bairro" class="form-control" id="bairro" 
+                                    <input type="text" required name="bairro" value="Centro" tabindex="11" class="form-control" id="bairro" 
                                     placeholder="Nome do bairro" autocomplete="off" > 
                                 </div>
                                 <div class="item-text input-error"></div>
@@ -266,7 +277,7 @@
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-list-alt"></span>
                                 </div>
-                                <input type="text" required name="numero" class="form-control" id="numero" 
+                                <input type="text" required name="numero" tabindex="12" value="2563" class="form-control" id="numero" 
                                 placeholder="número" autocomplete="off" > 
                              </div>
                                 <div class="item-text input-error"></div>                             
@@ -278,19 +289,19 @@
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-list-alt"></span>
                                 </div>
-                                <input type="text" required name="cep" class="form-control" id="cep" 
+                                <input type="text" required name="cep" tabindex="13" value="068503-317" class="form-control cep" id="cep" 
                                 placeholder="00000-0000" autocomplete="off" > 
                              </div>
                               <div class="item-text input-error"></div>       
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="ref">Referência</label> 
+                            <label for="referencia">Referência</label> 
                                <div class="input-group">
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-list-alt"></span>
                                 </div>
-                                <input type="text" required name="ref" class="form-control" id="ref" 
+                                <input type="text" required name="referencia" tabindex="14" value="Próximo de " class="form-control" id="referencia" 
                                 placeholder="Ponto de referência" autocomplete="off" > 
                              </div>
                               <div class="item-text input-error"></div>       
@@ -298,22 +309,20 @@
 
                 </div> 
 
-
-
                <div class="row">
                     <div class="form-group col-sm-12">
-                         <a href="#coment" data-toggle="popover" title="Aqui o título" data-content="Aqui o conteúdo sobre o campo 
+                         <a href="#comentario" data-toggle="popover" title="Aqui o título" data-content="Aqui o conteúdo sobre o campo 
                                explicando o seu uso,explicando o seu uso
                                explicando o seu uso,explicando o seu uso">
                                <i class="fa fa-question-circle-o" style="font-size:20px"></i>
                           </a>
 
-                         <label for="coment">Comentários</label> 
+                         <label for="comentario">Comentários</label> 
                          <div class="input-group">
                              <div class="input-group-addon">
                              <span class="glyphicon glyphicon-book"></span>
                              </div>
-                             <textarea class="form-control" required name="coment" rows="5" id="coment"></textarea>
+                             <textarea class="form-control" required name="comentario"  tabindex="15" rows="5" id="comentario"></textarea>
                         </div>
                          <div class="item-text input-error"></div>   
                      </div>
@@ -323,29 +332,32 @@
                <div class="row">
 
                   <div class="form-group col-sm-6">
-                      <div class="radio">
-                         <label>
-                            <input type="radio" required name="terminos" id="terminos" value="true"> 
-                            leio e aceito os termos e condições da empresa*.
-                            </input>
-                         </label>
-                        <div class="item-text input-error"></div>   
+                      <div class="container">
+                           <div class="form-check">
+                                <input class="form-check-input" type="radio" name="termoscontrato" tabindex="16" id="contrato01" value="simcontrato" checked>
+                                <label class="form-check-label" for="exampleRadios1"> leio e aceito os termos e condições da empresa*.</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="termoscontrato"  id="contrato02" value="naocontrato">
+                                <label class="form-check-label" for="exampleRadios2">Não aceito</label>
+                            </div>
+                            <div class="item-text input-error"></div> 
                       </div>
-                  </div>
+                 </div>
                   
                   <div class="form-group col-sm-6">
                      
-                       <div class="input-group input-file"  name="Fichier1">
+                       <div class="input-group input-file">
                            <span class="input-group-btn">
                                <button class="btn btn-default btn-choose" type="button">Arquivo</button>
                            </span>
-                           <input type="text" class="form-control" required id="arquivo" name="arquivo" placeholder='selecione um arquivo...' />
+                           <input type="text" class="form-control" required id="arquivoanexo" name="arquivoanexo" tabindex="17" placeholder='selecione um arquivo...' />
                            <span class="input-group-btn">
                                 <button class="btn btn-warning btn-reset" type="button">Limpar</button>
                            </span>
                        </div>
-                          <div class="item-text input-error"></div>
-
+                       <div class="item-text input-error"></div>
                   </div>
 
 
@@ -357,12 +369,12 @@
                     <div class="form-group col-sm-6">
                          <label>Responda estas perguntas:</label>
                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="simcasa" tabindex="18" name="checkvocetemcasa" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">Você tem uma casa?</label>
                            </div>
                             
                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                <input class="form-check-input" type="checkbox" value="simtv" tabindex="19" name="checkvocetemtv" id="defaultCheck2">
                                 <label class="form-check-label" for="defaultCheck2"> Você tem uma TV?</label>
                            </div>
                     </div>
@@ -371,17 +383,17 @@
                         <div class="container">
                             <label>Qual o seu esporte favorito:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <input class="form-check-input" type="radio" name="radioFavorito" tabindex="20" id="exampleRadios1" value="futebol" checked>
                                 <label class="form-check-label" for="exampleRadios1">Futebol</label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                <input class="form-check-input" type="radio" name="radioFavorito"  id="exampleRadios2" value="praia">
                                 <label class="form-check-label" for="exampleRadios2">Praia</label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                                <input class="form-check-input" type="radio" name="radioFavorito"  id="exampleRadios3" value="parque" >
                                 <label class="form-check-label" for="exampleRadios2">Parques</label>
                             </div>
                         </div>
@@ -405,6 +417,222 @@
     </div>
 
 
+    <div class="container">
+
+         <table id="dados" class="table table-hover table-striped display responsive nowrap " cellspacing="0" width="100%">
+               <thead>
+                  <tr>
+                     <th>Nome</th>
+                     <th>Apelido</th>
+                     <th>E-mail</th>
+                     <th>Valor do Contrato</th>
+                     <th>Data Nascimento</th>
+                     <th>Telefone</th>
+                     <th>Genero</th>
+                     <th></th>
+                 </tr>
+              </thead>
+              <tfoot>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Apelido</th>
+                    <th>E-mail</th>
+                    <th>Valor do Contrato</th>
+                    <th>Data Nascimento</th>
+                    <th>Telefone</th>
+                    <th>Genero</th>
+                    <th></th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                    <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                                        <tr>
+                      <td>Tiger</td>
+                      <td>Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>t.nixon@datatables.net</td>
+                          <td class="text-right">
+                            <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
+                            <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                            <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                          </td>
+                    </tr>   
+                </tbody>
+         </table>
+		  
+    </div>
+
+
     <footer>
         <div class="container">
             <div class="row copyright">
@@ -422,14 +650,19 @@
     <script src="public/js/bootstrap.min.js"></script>
     <!--Bootstrap Datetime-->
     <script type="text/javascript" src="public/js/moment.min.js"></script>
-    <script type="text/javascript" src="public/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="public/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="public/js/bootstrap-datepicker.pt-BR.min.js"></script>
     <script type="text/javascript" src="public/js/scripts.js"></script>
+    <script type="text/javascript" src="public/js/personalizado.js"></script>
     <script type="text/javascript" src="public/js/jquery.validate.min.js"></script>
-
+    <script type="text/javascript" src="public/js/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js" ></script>
+    <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
 
 
   <script type="text/javascript" charset="utf-8" >
-          
+        
       /* Validate & Submit Form */
       $('form').validate({
           messages: {
@@ -442,7 +675,7 @@
           email: {
               required: 'Adicionar o seu e-mail.',
               },             
-          nascimento: {
+          datanascimento: {
             required: 'Qual a data de nascimento?.',
               }, 
           telefone: {
@@ -472,18 +705,21 @@
          cep:{
            required: 'Cep?.',
           },
-         ref:{
+         referencia:{
             required: 'Informe uma referência.', 
          },   
-        coment:{
+        comentario:{
            required: 'Deixe um comentário',  
         }, 
-        terminos:{
+        termoscontrato:{
             required: 'Necessário aceitar os termos do contrato',  
         },  
-       arquivo:{
+       arquivoanexo:{
             required: 'Selecione um arquivo',  
-        },  
+        }, 
+        valorcontrato:{
+            required: 'Adicionar valor do contrato', 
+        }, 
         },
         onkeyup: false,
           errorElement : 'div',
