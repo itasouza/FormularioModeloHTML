@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Construção Modelo Padrão</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="~/images/favicon.png">
+
+    <!--dataTables-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css">
+
+
+</head>
+
+<body>
+
+    <noscript>
+        <meta http-equiv="refresh" content="30">
+        Para completa funcionalidade deste site é necessário habilitar o JavaScript.
+        Aqui estão as <a href="https://www.enable-javascript.com/pt/" target="_blank">
+            instruções de como habilitar o JavaScript no seu navegador
+        </a>.
+    </noscript>
+
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row copyright">
+                <div class="col-md-6">
+                    <p class="roboto">&copy;2017 Construção Modelo</p>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Javascript files-->
+    <script src="~/js/jquery-1.12.4.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/moment.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
